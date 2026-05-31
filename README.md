@@ -2,7 +2,7 @@ push_swap
 =========
 
 <div align="center">
-	<strong><span style="font-size: 1.25em;">Complexity, big-O, Sorting algorithms, and lots of headaches</span></strong>
+	<strong><span style="font-size: 1.25em;">Complexity, Big-O, sorting algorithms, and lots of headaches — solved by the Kurdish Algorith</span></strong>
 	<br />
 	<br />
 	<a href="https://42.fr/en/homepage/">
@@ -43,17 +43,10 @@ This 42 project is a deep dive into algorithmic complexity and Big-O notation. T
 Linux/Unix systems.
 
 ```bash
-# Update package lists
-sudo apt update
-
-# C compiler and basic libraries
-sudo apt install build-essential
-
-# Valgrind
-sudo apt install valgrind
-
-# GNU Make
-sudo apt install make
+sudo apt update # Update package lists
+sudo apt install build-essential # C compiler and basic libraries
+sudo apt install valgrind # Valgrind
+sudo apt install make # GNU Make
 ```
 
 Dependencies included in this repository:
