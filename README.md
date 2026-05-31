@@ -35,6 +35,10 @@ This 42 project is a deep dive into algorithmic complexity and Big-O notation. T
 - **Stack-oriented algorithm design**, using limited operations to solve complex problems.
 - **Advanced debugging techniques** for projects with many edge cases and emergent behavior.
 
+<br>
+
+---
+
 ## 🛠️ Requirements
 Linux/Unix systems.
 
@@ -67,12 +71,9 @@ Usage example:
 ./push_swap "list of numbers"
 ```
 
-Generate numbers:
-- Web: https://pinetools.com/es/generador-numeros-aleatorios
-
 Save the sequence to a variable and run:
 ```bash
-NUMS="list of numbers"
+NUMS="list of numbers" # replace with your generated numbers  Ex:"4 8 1 3 2 7 6 5"
 ./push_swap "$NUMS"
 ```
 
@@ -85,6 +86,10 @@ Check the move count:
 ```bash
 ./push_swap "$NUMS" | wc -l
 ```
+
+<br>
+
+---
 
 ## 🧾 Project Constraints
 To complete this project you are allowed to use two **stacks**. You can choose whatever data structure you want to simulate them. Initially you receive a sequence of data as program arguments. You must parse it and ensure the numbers meet these conditions: they are **numeric**, they fit in **integers**, and there are **no duplicates**.
@@ -154,16 +159,9 @@ The final goal is to end with a fully sorted sequence and keep the total number 
 ## Algorithms, Complexity, and Big-O
 This short preamble sets the context for **My Approach**. A program usually takes **input** data, **processes** it through a set of operations, and produces an **output**. An **algorithm** is the set of techniques used to perform that processing and deliver the result.
 
-In computer science, many operations are built around **sorting** to make **searching** more efficient, and there are many different **sorting algorithms** (different techniques to do it). Here is where **algorithmic complexity** comes in. Complexity is an abstract measure that describes how an algorithm's execution cost grows as a function of the input size. That cost can be measured in different ways and there are different kinds of complexity:
+In computer science, many operations are built around **sorting** to make **searching** more efficient, and there are many different **sorting algorithms** (different techniques to do it). Here is where **algorithmic complexity** comes in. Complexity is an abstract measure that describes how an algorithm's execution cost grows as a function of the input size. That cost can be measured in different ways and there are different kinds of complexity (Example: time complexity, space complexity, Number of operations, other resource usage or constraints , etc.). **Big-O** describes how that cost grows as the input size **scales**.
 
-- **Execution time**.
-- **Number of operations or steps**.
-- **Memory usage**.
-- **Other resource usage or constraints**.
-
-**Big-O** describes how that cost grows as the input size **scales**.
-
-<img src="img/big-o.webp" alt="Big-O chart" width="80%" style="display: block; margin: 0 auto;" />
+<img src="img/big-o.webp" alt="50" width="50%" style="display: block; margin: 0 auto;" />
 
 <br />
 
