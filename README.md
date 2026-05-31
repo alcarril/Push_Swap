@@ -127,9 +127,9 @@ Then you must load them into your data structure (i chose a circular buffer) and
 - `rrb` — Shift all elements of stack B down by one. The last element becomes the first.
 - `rrr` — Perform `rra` and `rrb` at the same time.
 
-	<p align="center">
+<div align="center">
 <img src="img/moves/move3.png" alt="Reverse rotate moves" width="50%" style="display: block; margin: 0 auto;" />
-</p>
+</div>
 
 <br>
 
