@@ -23,8 +23,7 @@ push_swap
 
 ## 📖 Overview
 This was my **fourth 42 project** and it focuses on **algorithmic complexity**, **Big-O notation**, and **numeric sorting algorithms**.
-The goal is to build an algorithm that sorts a stack of initially random, unsorted numbers using only a second stack for support and a very restrictive set of moves to manipulate elements.
-The main difficulty is not only to sort the numbers, but to do it as efficiently as possible. To evaluate the solution, the total number of moves must stay within specific ranges, which forces you to optimize the algorithm and carefully analyze its complexity and performance.
+This 42 project is a deep dive into algorithmic complexity and Big-O notation. The goal is to sort a stack of random numbers using just one auxiliary stack and a highly restricted set of operations. The real catch is efficiency: the algorithm has to sort the numbers in the absolute minimum number of moves to hit strict evaluation limits, requiring some serious optimization and performance analysis.
 
 ## ✨ Key Features
 - **Understanding Big O notation** and analyzing the time and space cost of algorithms.
@@ -97,34 +96,43 @@ Then you must load them into your data structure (i chose a circular buffer) and
 - `sb` — Swap the first two elements at the top of stack B. No-op if there are fewer than two elements.
 - `ss` — Perform `sa` and `sb` at the same time.
 
+	<p align="center">
 <img src="img/moves/move1.png" alt="Swap moves" width="50%" style="display: block; margin: 0 auto;" />
+</p>
 
 **Push moves**
 - `pa` — Take the first element at the top of stack B and push it onto stack A. No-op if B is empty.
 - `pb` — Take the first element at the top of stack A and push it onto stack B. No-op if A is empty.
 
+	<p align="center">
 <img src="img/moves/move4.png" alt="Push moves" width="50%" style="display: block; margin: 0 auto;" />
+</p>
 
 **Rotate moves**
 - `ra` — Shift all elements of stack A up by one. The first element becomes the last.
 - `rb` — Shift all elements of stack B up by one. The first element becomes the last.
 - `rr` — Perform `ra` and `rb` at the same time.
 
+	<p align="center">
 <img src="img/moves/move2.png" alt="Rotate moves" width="50%" style="display: block; margin: 0 auto;" />
+</p>
 
 **Reverse rotate moves**
 - `rra` — Shift all elements of stack A down by one. The last element becomes the first.
 - `rrb` — Shift all elements of stack B down by one. The last element becomes the first.
 - `rrr` — Perform `rra` and `rrb` at the same time.
 
+	<p align="center">
 <img src="img/moves/move3.png" alt="Reverse rotate moves" width="50%" style="display: block; margin: 0 auto;" />
+</p>
 
 <br>
 
 Each move must be printed to **stdout** when executed. Each printed move counts as one point toward the move total (see "Performance Benchmarks").
 
-<img src="img/moves/stdout.png" alt="100%" width="100%" style="display: block; margin: 0 auto;" />
+<img src="img/moves/stdout.png" alt="50%" width="50%" style="display: block; margin: 0 auto;" />
 
+<br>
 
 > [!NOTE]
 > The move images were extracted from this article by a 42 Silicon Valley peer: https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
@@ -132,13 +140,16 @@ Each move must be printed to **stdout** when executed. Each printed move counts 
 ### Performance Benchmarks
 The final goal is to end with a fully sorted sequence and keep the total number of moves within specific limits.
 
+<div align="center">
 
-| Goal | 100 numbers | 500 numbers |
-| --- | --- | --- |
-| Maximum validation (100%) + bonus eligibility | Fewer than 700 operations | No more than 5500 operations |
-| Minimum validation (80%) - option A | Under 1100 operations | Under 8500 operations |
-| Minimum validation (80%) - option B | Under 700 operations | Under 11500 operations |
-| Minimum validation (80%) - option C | Under 1300 operations | Under 5500 operations |
+| Evaluation Status | 100 Numbers | 500 Numbers |
+| :--- | :---: | :---: |
+| **Max Validation (100%) + Bonus** | **< 700 ops** | **≤ 5500 ops** |
+| Min Validation (80%) - Option A | < 1100 ops | < 8500 ops |
+| Min Validation (80%) - Option B | < 700 ops | < 11500 ops |
+| Min Validation (80%) - Option C | < 1300 ops | < 5500 ops |
+
+</div>
 
 ## Algorithms, Complexity, and Big-O
 This short preamble sets the context for **My Approach**. A program usually takes **input** data, **processes** it through a set of operations, and produces an **output**. An **algorithm** is the set of techniques used to perform that processing and deliver the result.
