@@ -2,7 +2,7 @@ push_swap
 =========
 
 <div align="center">
-	<strong><span style="font-size: 1.25em;">Complexity, Big-O, sorting algorithms, and lots of headaches — solved by the Kurdish Algorith</span></strong>
+	<strong><span style="font-size: 1.25em;">Complexity, Big-O, sorting, headaches and kurdish algorithm</span></strong>
 	<br />
 	<br />
 	<a href="https://42.fr/en/homepage/">
