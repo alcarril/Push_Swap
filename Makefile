@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alcarril <alcarril@student.42.fr>          +#+  +:+       +#+         #
+#    By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 22:34:29 by alex              #+#    #+#              #
-#    Updated: 2025/03/08 19:27:36 by alcarril         ###   ########.fr        #
+#    Updated: 2026/05/31 03:14:27 by alejandro        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 FILE_NAME = push-swap-presentacion
-SRC_FILE = Src
+SRC_FILE = src
 INCLUDE = Include
 
 SRCS = $(SRC_FILE)/push_swap.c $(SRC_FILE)/parse_arguments.c \
