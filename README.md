@@ -101,26 +101,26 @@ Then you must load them into your data structure (i chose a circular buffer) and
 - `sb` — Swap the first two elements at the top of stack B. No-op if there are fewer than two elements.
 - `ss` — Perform `sa` and `sb` at the same time.
 
-	<p align="center">
+	<div align="center">
 <img src="img/moves/move1.png" alt="Swap moves" width="50%" style="display: block; margin: 0 auto;" />
-</p>
+</div>
 
 **Push moves**
 - `pa` — Take the first element at the top of stack B and push it onto stack A. No-op if B is empty.
 - `pb` — Take the first element at the top of stack A and push it onto stack B. No-op if A is empty.
 
-	<p align="center">
+	<div align="center">
 <img src="img/moves/move4.png" alt="Push moves" width="50%" style="display: block; margin: 0 auto;" />
-</p>
+</div>
 
 **Rotate moves**
 - `ra` — Shift all elements of stack A up by one. The first element becomes the last.
 - `rb` — Shift all elements of stack B up by one. The first element becomes the last.
 - `rr` — Perform `ra` and `rb` at the same time.
 
-	<p align="center">
+	<div align="center">
 <img src="img/moves/move2.png" alt="Rotate moves" width="50%" style="display: block; margin: 0 auto;" />
-</p>
+</div>
 
 **Reverse rotate moves**
 - `rra` — Shift all elements of stack A down by one. The last element becomes the first.
@@ -135,7 +135,7 @@ Then you must load them into your data structure (i chose a circular buffer) and
 
 Each move must be printed to **stdout** when executed. Each printed move counts as one point toward the move total (see "Performance Benchmarks").
 
-<img src="img/moves/stdout.png" alt="50%" width="50%" style="display: block; margin: 0 auto;" />
+<img src="img/moves/stdout.png" alt="90%" width="90%" style="display: block; margin: 0 auto;" />
 
 <br>
 
