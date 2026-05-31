@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   do_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:04:23 by alex              #+#    #+#             */
-/*   Updated: 2025/02/27 13:38:46 by alex             ###   ########.fr       */
+/*   Updated: 2026/05/31 14:13:30 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+* @brief Executes the necessary moves to transfer the selected node from stack 
+	A to stack B, ensuring that the node is moved to the correct position in 
+	stack B according to its value and the current state of stack B.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	do_moves(t_head *head)
 {
 	t_node	*node;
@@ -38,6 +45,12 @@ void	do_moves(t_head *head)
 	ft_actualize_positions_and_axis_a(head->list_a, head);
 }
 
+/**
+* @brief Moves all the numbers from stack B back to stack A in the correct 
+	order, after all the nodes have been moved from stack A to stack B.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	moves_on_top(t_head *head, t_node *node)
 {
 	if (!head || !node)
@@ -58,6 +71,12 @@ void	moves_on_top(t_head *head, t_node *node)
 	}
 }
 
+/**
+* @brief Moves all the numbers from stack B back to stack A in the correct 
+	order, after all the nodes have been moved from stack A to stack B.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	moves_on_lower(t_head *head, t_node *node)
 {
 	if (!head || !node)
@@ -78,6 +97,18 @@ void	moves_on_lower(t_head *head, t_node *node)
 	}
 }
 
+/**
+* @brief Handles the cases for rotating stack B when moving a node from stack A 
+	to stack B, considering the positions of the docks in stack B and the value
+	of the node being moved.
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A that is being moved to stack B.
+* @param m_val The value of the medium node in stack B, used for comparison to
+	determine the correct position for the node being moved.
+* @param num The value of the node being moved from stack A to stack B, 
+	used for comparison to determine the correct position for the node being 
+	moved.
+*/
 void	rotate_b_cases(t_head *head, t_node *node, int m_val, int num)
 {
 	if (!head || !node)
@@ -102,6 +133,21 @@ void	rotate_b_cases(t_head *head, t_node *node, int m_val, int num)
 	}
 }
 
+/**
+* @brief Handles the cases for reverse rotating stack B when moving a node from
+	stack A to stack B, considering the positions of the docks in stack B and 
+	the value of the node being moved. This function ensures that the node is 
+	moved to the correct position in stack B according to its value and the 
+	current state of stack B, while also updating the positions of the docks 
+	in stack B as needed,
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A that is being moved to stack B.
+* @param m_val The value of the medium node in stack B, used for comparison to
+	determine the correct position for the node being moved.
+* @param num The value of the node being moved from stack A to stack B, 
+	used for comparison to determine the correct position for the node being 
+	moved.
+*/
 void	rrotate_b_cases(t_head *head, t_node *node, int m_val, int num)
 {
 	if (!head || !node)

@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   budget_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:06:29 by alex              #+#    #+#             */
-/*   Updated: 2025/02/22 22:41:19 by alex             ###   ########.fr       */
+/*   Updated: 2026/05/31 14:15:22 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+* @brief Calculates the cost of moving a node from stack B to the correct 
+	position in stack A, considering both the cost of moving in stack A and 
+	stack B.
+* @param current The node in stack B for which the cost is being calculated.
+* @param head The head structure containing metadata about the stacks.
+* @return The total cost of moving the node to the correct position in stack A.
+*/
 int	hwm_on_topb(t_head *head, t_node *current, int delimiter, int counter)
 {
 	t_node	*list_b;
@@ -38,6 +46,14 @@ int	hwm_on_topb(t_head *head, t_node *current, int delimiter, int counter)
 	return (counter);
 }
 
+/**
+* @brief Calculates the cost of moving a node from stack B to the correct
+	position in stack A, considering both the cost of moving in stack A and 
+	stack B, when the node is closer to the bottom of stack B.
+* @param current The node in stack B for which the cost is being calculated.
+* @param head The head structure containing metadata about the stacks.
+* @return The total cost of moving the node to the correct position in stack A.
+*/
 int	hwm_on_lowerb(t_head *head, t_node *current, int delimiter, int counter)
 {
 	t_node	*list_b;
@@ -64,6 +80,13 @@ int	hwm_on_lowerb(t_head *head, t_node *current, int delimiter, int counter)
 	return (counter);
 }
 
+/**
+* @brief Calculates the cost of moving a node from stack B to the correct position 
+	in stack A, considering both the cost of moving in stack A and stack B.
+* @param current The node in stack B for which the cost is being calculated.
+* @param head The head structure containing metadata about the stacks.
+* @return The total cost of moving the node to the correct position in stack A.
+*/
 int	calculate_cost_a(t_node *current, t_head *head)
 {
 	int		cost;
@@ -83,6 +106,15 @@ int	calculate_cost_a(t_node *current, t_head *head)
 	return (cost);
 }
 
+/**
+* @brief Determines the sales value for a node in stack B based on its position
+	in stack A and the costs of moving in both stacks.
+* @param current The node in stack B for which the sales value is being 
+	calculated
+* @param head The head structure containing metadata about the stacks.
+* @param flag A flag indicating whether the node is in the upper or lower 
+	half of stack
+*/
 int	check_sales(t_head *head, t_node *current, char flag)
 {
 	int		sales;

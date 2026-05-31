@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   short_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:05:51 by alex              #+#    #+#             */
-/*   Updated: 2025/02/28 16:06:26 by alex             ###   ########.fr       */
+/*   Updated: 2026/05/31 14:26:51 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Sorts a small number of elements in stack A using specific algorithms
+ * based on the number of elements. It handles cases for 2, 3, 5, and more than 
+ * 3 elements with different sorting strategies.
+ * @param head The head structure containing metadata about the stacks.
+ * @return void
+ */
 void	short_nums(t_head *head)
 {
 	if (!head || !head->list_a)
@@ -31,6 +38,13 @@ void	short_nums(t_head *head)
 		short_big(head);
 }
 
+/**
+ * @brief Sorts three elements in stack A using a specific algorithm that
+ * identifies the maximum and minimum elements and performs the necessary 
+ * moves to sort them in ascending order.
+ * @param list_a The circular linked list representing stack A.
+ * @return void
+ */
 void	short_three_a(t_node **list_a)
 {
 	t_node	*max;
@@ -55,6 +69,15 @@ void	short_three_a(t_node **list_a)
 	short_three_a(list_a);
 }
 
+/**
+ * @brief Sorts three elements in stack B using a specific algorithm that
+ * identifies the maximum and minimum elements and performs the necessary
+ * moves to sort them in descending order, as stack B is used as an auxiliary
+ * stack for sorting stack A.
+ * @param head The head structure containing metadata about the stacks.
+ * @param list_b The circular linked list representing stack B.
+ * @return void
+ */
 void	short_three_b(t_head *head, t_node **list_b)
 {
 	t_node	*max;
@@ -83,6 +106,15 @@ void	short_three_b(t_head *head, t_node **list_b)
 	short_three_b(head, list_b);
 }
 
+/**
+ * @brief Sorts five elements in stack A by first moving two elements to stack B,
+ * sorting the three remaining elements in stack A, and then moving the two elements
+ * back to stack A in the correct order. It uses the short_three_a and short_three_b
+ * functions to sort the respective stacks and ensures that the final order in stack A
+ * is correct.
+ * @param head The head structure containing metadata about the stacks.
+ * @return void
+ */
 void	short_five(t_head *head)
 {
 	if (!head || !head->list_a)
@@ -94,6 +126,16 @@ void	short_five(t_head *head)
 	dump_nums_on_a(head);
 }
 
+/**
+ * @brief Sorts a larger number of elements in stack A by first moving a portion of the
+ * elements to stack B, sorting the remaining elements in stack A, and then moving the
+ * elements back to stack A in the correct order. It uses the short_three_b function to
+ * sort the elements in stack B and ensures that the final order in stack A is correct by
+ * using the dump_nums_on_a function to move the elements back to stack A in the correct 
+ * order.
+ * @param head The head structure containing metadata about the stacks.
+ * @return void
+ */
 void	short_big(t_head *head)
 {
 	int	i;

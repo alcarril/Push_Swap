@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   do_moves_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:25:55 by alex              #+#    #+#             */
-/*   Updated: 2025/02/28 16:07:28 by alex             ###   ########.fr       */
+/*   Updated: 2026/05/31 14:14:01 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+* @brief Selects the node in stack A with the lowest total cost to move to 
+	stack B, and in case of a tie, selects the node with the lower number.
+* @param head The head structure containing metadata about the stacks.
+* @return A pointer to the node in stack A that has the lowest total cost to
+	move to stack B.
+*/
 t_node	*select_best_node_to_move(t_head *head)
 {
 	t_node	*cheapest;
@@ -37,6 +44,15 @@ t_node	*select_best_node_to_move(t_head *head)
 	return (cheapest);
 }
 
+/**
+* @brief Calculates the budget for a specific node in stack A, which represents
+	the cost of moving that node to the correct position in stack B, 
+	considering the positions of the docks in stack B when both docks are 
+	occupied.
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A for which the budget is being calculated.
+* @return void
+*/
 void	handle_position_r(t_head *head, t_node *node)
 {
 	if (!head || !node)
@@ -54,6 +70,15 @@ void	handle_position_r(t_head *head, t_node *node)
 	}
 }
 
+/**
+* @brief Calculates the budget for a specific node in stack A, which represents
+	the cost of moving that node to the correct position in stack B, 
+	considering the positions of the docks in stack B when both docks are 
+	occupied.
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A for which the budget is being calculated.
+* @return void
+*/
 void	handle_position_rr(t_head *head, t_node *node)
 {
 	if (!head || !node)
@@ -71,6 +96,12 @@ void	handle_position_rr(t_head *head, t_node *node)
 	}
 }
 
+/**
+* @brief Moves all the numbers from stack B back to stack A in the correct 
+	order, after all the nodes have been moved from stack A to stack B.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	dump_nums_on_a(t_head *head)
 {
 	t_node	*current_a;
@@ -94,6 +125,15 @@ void	dump_nums_on_a(t_head *head)
 		pa(head, &(head->list_a), &(head->list_b), head->stack_b_len);
 }
 
+/**
+* @brief Moves numbers from stack B back to stack A until the current number in
+	stack A is lower than the current number in stack B, ensuring that the 
+	numbers are moved back to stack A in the correct order.
+* @param head The head structure containing metadata about the stacks.
+* @param current_a The current node in stack A that is being compared to the 
+	current node in stack B.
+* @return void
+*/
 void	dump_until_lower(t_head *head, t_node *current_a)
 {
 	t_node	*current_b;

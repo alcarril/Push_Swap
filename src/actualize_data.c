@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   actualize_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:32:04 by alex              #+#    #+#             */
-/*   Updated: 2025/02/22 22:31:27 by alex             ###   ########.fr       */
+/*   Updated: 2026/05/31 14:15:38 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+* @brief Actualizes the positions of the nodes in stack A and the axis A 
+	in the head structure.
+* @param list_a The circular linked list representing stack A.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	ft_actualize_positions_and_axis_a(t_node *list_a, t_head *head)
 {
 	t_node	*current;
@@ -36,6 +43,11 @@ void	ft_actualize_positions_and_axis_a(t_node *list_a, t_head *head)
 	head->axis_a = head->stack_a_len / 2 + a;
 }
 
+/**
+* @brief Actualizes the medium node of stack B in the head structure.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	ft_actualize_medium_b(t_head *head)
 {
 	t_node	*current_b;
@@ -64,6 +76,12 @@ void	ft_actualize_medium_b(t_head *head)
 	head->medium_b = current_b;
 }
 
+/**
+* @brief Actualizes the docks of stack B in the head structure based on the 
+	current medium node and the length of stack B.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	fix_medium_and_docks(t_head *head)
 {
 	int	i;

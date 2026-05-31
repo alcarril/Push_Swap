@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   budget.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:54:44 by alex              #+#    #+#             */
-/*   Updated: 2025/02/23 17:59:34 by alex             ###   ########.fr       */
+/*   Updated: 2026/05/31 14:14:49 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+* @brief Calculates the budget for each node in stack A, which represents the 
+	cost of moving that node to the correct position in stack B.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	make_budgets(t_head *head)
 {
 	t_node	*current;
@@ -33,6 +39,14 @@ void	make_budgets(t_head *head)
 	}
 }
 
+/**
+* @brief Calculates the budget for a specific node in stack A, which represents
+	the cost of moving that node to the correct position in stack B, 
+	considering the positions of the docks in stack B.
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A for which the budget is being calculated.
+* @return void
+*/
 void	node_budget(t_head *head, t_node *node)
 {
 	int		medium;
@@ -54,6 +68,15 @@ void	node_budget(t_head *head, t_node *node)
 	node->total_cost = node->cost_b + node->cost_a - node->sales + 1;
 }
 
+/**
+* @brief Calculates the budget for a specific node in stack A, which represents
+	the cost of moving that node to the correct position in stack B, 
+	considering the positions of the docks in stack B when the top dock is 
+	occupied.
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A for which the budget is being calculated.
+* @return void
+*/
 void	node_budget_with_top_docks(t_head *head, t_node *node)
 {
 	if (!head || !node)
@@ -79,6 +102,15 @@ void	node_budget_with_top_docks(t_head *head, t_node *node)
 	node->total_cost = node->cost_b + node->cost_a - node->sales + 1;
 }
 
+/**
+* @brief Calculates the budget for a specific node in stack A, which represents
+	the cost of moving that node to the correct position in stack B, 
+	considering the positions of the docks in stack B when the bottom dock is 
+	occupied.
+* @param head The head structure containing metadata about the stacks.
+* @param node The node in stack A for which the budget is being calculated.
+* @return void
+*/
 void	node_budget_with_bottom_docks(t_head *head, t_node *node)
 {
 	if (!head || !node)

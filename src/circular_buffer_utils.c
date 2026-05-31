@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   circular_buffer_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alcarril <alcarril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alejandro <alejandro@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:06:44 by alex              #+#    #+#             */
-/*   Updated: 2025/03/08 19:35:37 by alcarril         ###   ########.fr       */
+/*   Updated: 2026/05/31 14:14:29 by alejandro        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+* @brief Creates a new node for the circular linked list representing the 
+	stacks.
+* @param num The number to be stored in the new node.
+* @return A pointer to the newly created node.
+*/
 t_node	*ft_lstnew_ps(int num)
 {
 	t_node	*new_node;
@@ -25,6 +31,13 @@ t_node	*ft_lstnew_ps(int num)
 	return (new_node);
 }
 
+/**
+* @brief Adds a new node to the end of the circular linked list representing 
+	the stacks.
+* @param list A pointer to the head of the circular linked list.
+* @param new The new node to be added to the list.
+* @return void
+*/
 void	ft_lstaddback_ps(t_node **list, t_node *new)
 {
 	t_node	*current_node;
@@ -53,6 +66,12 @@ void	ft_lstaddback_ps(t_node **list, t_node *new)
 	}
 }
 
+/**
+* @brief Frees the memory allocated for the nodes in both stacks and the head 
+	structure.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	ft_free_stacks(t_head *head)
 {
 	t_node	*aux;
@@ -82,6 +101,12 @@ void	ft_free_stacks(t_head *head)
 	free(head);
 }
 
+/**
+* @brief Initializes the head structure with default values for the stacks and 
+	metadata.
+* @param head The head structure to be initialized.
+* @return void
+*/
 void	load_head(t_head *head)
 {
 	if (!head)
@@ -95,6 +120,14 @@ void	load_head(t_head *head)
 	head->docks_b[1] = 0;
 }
 
+/**
+* @brief Calculates the budget for a specific node in stack A, which represents
+	the cost of moving that node to the correct position in stack B, 
+	considering the positions of the docks in stack B when the top dock is 
+	occupied.
+* @param head The head structure containing metadata about the stacks.
+* @return void
+*/
 void	i_nul(t_head *head)
 {
 	if (!head || !head->list_b)
