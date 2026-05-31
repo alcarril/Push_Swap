@@ -179,6 +179,7 @@ Those moves are very specific. When you analyze them, you realize there are **no
 
 ---
 ### My algorithmic approach
+---
 
 Realizing those two things is **super, super important** to solve the project. At first, most people look at the existing algorithms. Later you realize only a few are practical here: **radix**, **bucket-based separation**, and a more **brute-force** strategy where you compute the cheapest move and execute it on each iteration. I chose an adaptation of that last approach. That algorithm has a known name, but a 42 student popularized it as the **Turk algorithm**. Since I adapted it to my own approach, I renamed it the **Kurdish algorithm**. And of course, for **user experience** and to be a good programmer, I also chose an approach that reduces **runtime complexity** ussing a **circular buffer** to implement the stacks, which simplifies the rotations and reduces the number of operations needed to access elements.
 
@@ -214,6 +215,21 @@ If this distance is greater than half the stack's size, the algorithm sets `dock
 
 <br>
 
+> [!NOTE]
+> **Recommended Reading:** To better visualize how elements shift between stacks and understand instruction costs, check out [Push_swap: The least amount of moves with two stacks](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a). It provides excellent conceptual breakdowns that align with the core mechanics of this algorithm.
+
+<br>
+
+
+## 🖥️ Utils
+
+You can use the following tools to generate random numbers and visualize the moves:
+
+- Push swap visualizer - https://codepen.io/ahkoh/pen/bGWxmVz
+- Number generator - https://pinetools.com/es/generador-numeros-aleatorios
+
+<br>
+
 ---
 
 ## ℹ️ Resources
@@ -241,9 +257,6 @@ If this distance is greater than half the stack's size, the algorithm sets `dock
 **Turk algorithm (cousin):**
 - Turk algorithm explanation - https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0
 
-**Utils:**
-- Push swap visualizer - https://codepen.io/ahkoh/pen/bGWxmVz
-- Number generator - https://pinetools.com/es/generador-numeros-aleatorios
 
 <br>
 
