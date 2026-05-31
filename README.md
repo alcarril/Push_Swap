@@ -94,7 +94,13 @@ Check the move count:
 ## 🧾 Project Constraints
 To complete this project you are allowed to use two **stacks**. You can choose whatever data structure you want to simulate them. Initially you receive a sequence of data as program arguments. You must parse it and ensure the numbers meet these conditions: they are **numeric**, they fit in **integers**, and there are **no duplicates**.
 
-Then you must load them into your data structure (i chose a circular buffer) and start moving them to sort them. There are a gruopu of moves you can use to manipulate the stacks, but they are very specific and restrictive.
+Then you must load them into your data structure (i chose a circular buffer) and start moving them to sort them. There are a gruopu of moves you can use to manipulate the stacks, but they are very specific and restrictive.When you execute a move, you must print it to **stdout**. The goal is to end with a fully sorted sequence and keep the total number of moves within specific limits (see "Performance Benchmarks").
+
+<br>
+
+<img src="img/moves/stdout.png" alt="90%" width="90%" style="display: block; margin: 0 auto;" />
+
+### Allowed Moves
 
 **Swap moves**
 - `sa` — Swap the first two elements at the top of stack A. No-op if there are fewer than two elements.
@@ -133,14 +139,6 @@ Then you must load them into your data structure (i chose a circular buffer) and
 
 <br>
 
-Each move must be printed to **stdout** when executed. Each printed move counts as one point toward the move total (see "Performance Benchmarks").
-
-<img src="img/moves/stdout.png" alt="90%" width="90%" style="display: block; margin: 0 auto;" />
-
-<br>
-
-> [!NOTE]
-> The move images were extracted from this article by a 42 Silicon Valley peer: https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 
 ### Performance Benchmarks
 The final goal is to end with a fully sorted sequence and keep the total number of moves within specific limits.
@@ -156,19 +154,20 @@ The final goal is to end with a fully sorted sequence and keep the total number 
 
 </div>
 
+> [!NOTE]
+> The move images were extracted from [this article](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) by a 42 Silicon Valley peer.
+
 ## Algorithms, Complexity, and Big-O
 This short preamble sets the context for **My Approach**. A program usually takes **input** data, **processes** it through a set of operations, and produces an **output**. An **algorithm** is the set of techniques used to perform that processing and deliver the result.
 
 In computer science, many operations are built around **sorting** to make **searching** more efficient, and there are many different **sorting algorithms** (different techniques to do it). Here is where **algorithmic complexity** comes in. Complexity is an abstract measure that describes how an algorithm's execution cost grows as a function of the input size. That cost can be measured in different ways and there are different kinds of complexity (Example: time complexity, space complexity, Number of operations, other resource usage or constraints , etc.). **Big-O** describes how that cost grows as the input size **scales**.
 
-<img src="img/big-o.webp" alt="50" width="50%" style="display: block; margin: 0 auto;" />
-
-<br />
 
 > [!NOTE]
-> If you want to dive deeper into these concepts, here are my Notion pages:
-> - Algorithms and sorting: https://broken-snowdrop-f03.notion.site/Algoritmos-y-algoritmos-de-ordenacion-371b80eb3d8880088feaeee06db20774?pvs=74
-> - Complexity and Big-O: https://app.notion.com/p/Big-o-and-complexity-analisisis-371b80eb3d8880aabe56ea6c582ff2e0
+> If you want to dive deeper into algorithms and sorting, check out my Notion page [here](https://broken-snowdrop-f03.notion.site/Algoritmos-y-algoritmos-de-ordenacion-371b80eb3d8880088feaeee06db20774?pvs=74).
+
+> [!NOTE]
+> If you want to dive deeper into complexity and Big-O, check out my Notion page [here](https://app.notion.com/p/Big-o-and-complexity-analisisis-371b80eb3d8880aabe56ea6c582ff2e0).
 
 ## My Approach - Kurdish Algorithm
 Algorithms are based on **logical principles**, which is what makes them efficient for the tasks they solve. A good programmer must know how to choose the **right algorithm** for the problem at hand. In this project, the abstract measure we want to reduce for the given **input** (the list of numbers) is the **number of moves**, because that is the only benchmark that matters. You could technically build a program that spends **half an hour** calculating whatever it needs, just to output a sequence with very few moves, and it would still pass. That makes it clear that, here, complexity is not about **space**, **time**, or **runtime performance**. It is defined solely by whether the allowed moves meet the **benchmark thresholds**, and that perspective is what makes the idea of complexity really click.
