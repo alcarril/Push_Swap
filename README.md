@@ -101,7 +101,7 @@ Then you must load them into your data structure (i chose a circular buffer) and
 - `sb` — Swap the first two elements at the top of stack B. No-op if there are fewer than two elements.
 - `ss` — Perform `sa` and `sb` at the same time.
 
-	<div align="center">
+<div align="center">
 <img src="img/moves/move1.png" alt="Swap moves" width="50%" style="display: block; margin: 0 auto;" />
 </div>
 
@@ -109,7 +109,7 @@ Then you must load them into your data structure (i chose a circular buffer) and
 - `pa` — Take the first element at the top of stack B and push it onto stack A. No-op if B is empty.
 - `pb` — Take the first element at the top of stack A and push it onto stack B. No-op if A is empty.
 
-	<div align="center">
+<div align="center">
 <img src="img/moves/move4.png" alt="Push moves" width="50%" style="display: block; margin: 0 auto;" />
 </div>
 
@@ -118,7 +118,7 @@ Then you must load them into your data structure (i chose a circular buffer) and
 - `rb` — Shift all elements of stack B up by one. The first element becomes the last.
 - `rr` — Perform `ra` and `rb` at the same time.
 
-	<div align="center">
+<div align="center">
 <img src="img/moves/move2.png" alt="Rotate moves" width="50%" style="display: block; margin: 0 auto;" />
 </div>
 
