@@ -157,7 +157,14 @@ The final goal is to end with a fully sorted sequence and keep the total number 
 > [!NOTE]
 > The move images were extracted from [this article](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) by a 42 Silicon Valley peer.
 
-## Algorithms, Complexity, and Big-O
+<br>
+
+
+
+## 🎯 My Understanding and Approach
+
+### Preamble: Algorithms, Complexity, and Big-O
+---
 This short preamble sets the context for **My Approach**. A program usually takes **input** data, **processes** it through a set of operations, and produces an **output**. An **algorithm** is the set of techniques used to perform that processing and deliver the result.
 
 In computer science, many operations are built around **sorting** to make **searching** more efficient, and there are many different **sorting algorithms** (different techniques to do it). Here is where **algorithmic complexity** comes in. Complexity is an abstract measure that describes how an algorithm's execution cost grows as a function of the input size. That cost can be measured in different ways and there are different kinds of complexity (Example: time complexity, space complexity, Number of operations, other resource usage or constraints , etc.). **Big-O** describes how that cost grows as the input size **scales**.
@@ -169,12 +176,52 @@ In computer science, many operations are built around **sorting** to make **sear
 > [!NOTE]
 > If you want to dive deeper into complexity and Big-O, check out my Notion page [here](https://app.notion.com/p/Big-o-and-complexity-analisisis-371b80eb3d8880aabe56ea6c582ff2e0).
 
-## My Approach - Kurdish Algorithm
+---
+
+### Key to solve the project
+---
 Algorithms are based on **logical principles**, which is what makes them efficient for the tasks they solve. A good programmer must know how to choose the **right algorithm** for the problem at hand. In this project, the abstract measure we want to reduce for the given **input** (the list of numbers) is the **number of moves**, because that is the only benchmark that matters. You could technically build a program that spends **half an hour** calculating whatever it needs, just to output a sequence with very few moves, and it would still pass. That makes it clear that, here, complexity is not about **space**, **time**, or **runtime performance**. It is defined solely by whether the allowed moves meet the **benchmark thresholds**, and that perspective is what makes the idea of complexity really click.
 
 Those moves are very specific. When you analyze them, you realize there are **no insertions**: you cannot pick elements from the middle of a stack or move elements inside a stack directly. You must use the allowed moves, and you can only operate at the **ends of the stacks**. **Sorting algorithms** are designed to solve this kind of problem, but if the task had no movement restrictions you could simply choose the algorithm that best fits your situation. With these constraints, the practical approach is to **extract their principles** and adapt them to this project.
 
-Realizing those two things is **super, super important** to solve the project. At first, most people look at the existing algorithms. Later you realize only a few are practical here: **radix**, **bucket-based separation**, and a more **brute-force** strategy where you compute the cheapest move and execute it on each iteration. I chose an adaptation of that last approach. That algorithm has a known name, but a 42 student popularized it as the **Turk algorithm**. Since I adapted it to my own approach, I renamed it the **Kurdish algorithm**. And of course, for **user experience** and to be a good programmer, I also chose an approach that reduces **runtime complexity**.
+---
+### My algorithmic approach
+
+Realizing those two things is **super, super important** to solve the project. At first, most people look at the existing algorithms. Later you realize only a few are practical here: **radix**, **bucket-based separation**, and a more **brute-force** strategy where you compute the cheapest move and execute it on each iteration. I chose an adaptation of that last approach. That algorithm has a known name, but a 42 student popularized it as the **Turk algorithm**. Since I adapted it to my own approach, I renamed it the **Kurdish algorithm**. And of course, for **user experience** and to be a good programmer, I also chose an approach that reduces **runtime complexity** ussing a **circular buffer** to implement the stacks, which simplifies the rotations and reduces the number of operations needed to access elements.
+
+The algorithm is based on the principle of **finding the cheapest move** at each iteration and executing it. I make a budget of moves for each element in stack A, and I execute the move with the lowest cost. The budget is based on the number of moves needed to get the element to the top of stack A, and then the number of moves needed to get it to the right position in stack B. I also take into account that some moves can be executed at the same time (Example: `ra` and `rb` can be executed as `rr`), which reduces the total move count.
+
+To track positions in stack B and analyze its current layout, I use a `dock` variable. Instead of wasting moves trying to keep stack B perfectly sorted after every single push, I let it remain unsorted and use `dock` to calculate the exact distance to the correct insertion point. 
+
+If this distance is greater than half the stack's size, the algorithm sets `dock` to the remaining number of elements, switching the rotation direction (from normal to reverse). By dynamically updating these positions on the fly, I can calculate the absolute shortest path for each element when evaluating pushing costs, completely eliminating redundant maintenance moves.
+
+<br>
+
+<div align="center">
+  <table>
+	<tr>
+	  <td width="33.3%" align="center">
+		<img src="img/kurdish_algorithm/1.png" alt="Logic and Edge Cases" width="100%" />
+		<br />
+		<sub><b>Logic and Edge Cases</b></sub>
+	  </td>
+	  <td width="33.3%" align="center">
+		<img src="img/kurdish_algorithm/2.png" alt="Sales" width="100%" />
+		<br />
+		<sub><b>Sales</b></sub>
+	  </td>
+	  <td width="33.3%" align="center">
+		<img src="img/kurdish_algorithm/3.png" alt="Docks Diagram" width="100%" />
+		<br />
+		<sub><b>Docks Diagram</b></sub>
+	  </td>
+	</tr>
+  </table>
+</div>
+
+<br>
+
+---
 
 ## ℹ️ Resources
 **Complexity and Big-O:**
@@ -204,6 +251,10 @@ Realizing those two things is **super, super important** to solve the project. A
 **Utils:**
 - Push swap visualizer - https://codepen.io/ahkoh/pen/bGWxmVz
 - Number generator - https://pinetools.com/es/generador-numeros-aleatorios
+
+<br>
+
+---
 
 ## 👨‍💻 Author
 **Alejandro Carrillo - [https://github.com/alcarril/](https://github.com/alcarril/)**
